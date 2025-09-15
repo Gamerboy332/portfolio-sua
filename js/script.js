@@ -25,6 +25,7 @@ function showSlidesBrickmerica(n) {
     slides[slideIndexBrickmerica-1].style.display = "block";
 }
 
+// --- Taurista Slideshow ---
 let slideIndexTaurista = 1;
 showSlidesTaurista(slideIndexTaurista);
 
@@ -40,6 +41,60 @@ function showSlidesTaurista(n) {
         slides[i].style.display = "none";
     }
     slides[slideIndexTaurista-1].style.display = "block";
+}
+
+// --- Warfronts Slideshow ---
+let slideIndexWarfronts = 1;
+showSlidesWarfronts(slideIndexWarfronts);
+
+function plusSlideswarfronts(n) {
+    showSlidesWarfronts(slideIndexWarfronts += n);
+}
+
+function showSlidesWarfronts(n) {
+    let slides = document.getElementsByClassName("slide-warfronts");
+    if (n > slides.length) {slideIndexWarfronts = 1}
+    if (n < 1) {slideIndexWarfronts = slides.length}
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndexWarfronts-1].style.display = "block";
+}
+
+// --- Vehicle Rental Slideshow ---
+let slideIndexVehicleRental = 1;
+showSlidesVehicleRental(slideIndexVehicleRental);
+
+function plusSlidesVehicleRental(n) {
+    showSlidesVehicleRental(slideIndexVehicleRental += n);
+}
+
+function showSlidesVehicleRental(n) {
+    let slides = document.getElementsByClassName("slide-vehiclerental");
+    if (n > slides.length) {slideIndexVehicleRental = 1}
+    if (n < 1) {slideIndexVehicleRental = slides.length}
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndexVehicleRental-1].style.display = "block";
+}
+
+// --- Recommender System Slideshow ---
+let slideIndexRecommender = 1;
+showSlidesRecommender(slideIndexRecommender);
+
+function plusSlidesRecommender(n) {
+    showSlidesRecommender(slideIndexRecommender += n);
+}
+
+function showSlidesRecommender(n) {
+    let slides = document.getElementsByClassName("slide-recommendersystem");
+    if (n > slides.length) {slideIndexRecommender = 1}
+    if (n < 1) {slideIndexRecommender = slides.length}
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndexRecommender-1].style.display = "block";
 }
 
 const link10 = document.getElementById("link10");

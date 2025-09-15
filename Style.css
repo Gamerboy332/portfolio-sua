@@ -29,6 +29,12 @@ body {
     background: black;
 }
 
+.header.minimized {
+    padding: 8px 10%;
+    background: rgba(0,0,0,0.95);
+    transition: padding 0.3s, background 0.3s;
+}
+
 .logo {
     position: relative;
     font-size: 50px;
@@ -36,6 +42,11 @@ body {
     text-decoration: none;
     font-weight: 600;
     cursor: default;
+}
+
+.logo.minimized {
+    font-size: 32px;
+    transition: font-size 0.3s;
 }
 
 .logo::before {
@@ -495,319 +506,333 @@ span {
     min-height: auto;
     padding-bottom: 7rem;
     background-color: black;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
-.portfolio .portfolio-row {
+.portfolio-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 3rem;
+    justify-content: center;
 }
 
-.portfolio-row .portfolio-column {
-    flex:  1 1 40rem;
+.portfolio-column {
+    flex: 1 1 350px;
+    min-width: 320px;
+    max-width: 600px;
 }
 
-.portfolio-column .title {
-    font-size: 2.5rem;
-    margin: 0 0 1.5rem;
-}
-
-.portfolio-box .portfolio-content {
-    position: relative;
-    border: .2rem solid;
-    color: white;
-    border-radius: .6rem;
-    padding: .5rem 1.5rem;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.portfolio-box .portfolio-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: darkcyan;
-    z-index: -1;
-    transition: 1s;
-}
-
-.portfolio-box .portfolio-content:hover:before {
+.portfolio-box {
     width: 100%;
 }
 
-.portfolio-content .personal {
-    padding: 1rem 0;
-}
-
-.portfolio-content .personal h3 {
-    font-size: 1.7rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.portfolio-content .personal h3 {
+.portfolio-content {
+    position: relative;
+    border: .2rem solid #00abf0;
     color: white;
+    border-radius: .6rem;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    margin-bottom: 2.5rem;
+    background: #111;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+    z-index: 1;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
 }
 
-.portfolio-content .personal .bar {
+.portfolio-content:hover {
+    box-shadow: 0 4px 32px 0 rgba(0,171,240,0.15);
+}
+
+.portfolio-content .personal {
+    padding: 1rem 0 0 0;
+}
+
+.portfolio-content .personal h1 {
+    font-size: 1.3rem;
+    color: #00abf0;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-content .personal h2 {
+    font-size: 1.1rem;
+    color: #ededed;
+    margin-bottom: 0.3rem;
+}
+
+.portfolio-content .personal p {
+    font-size: 1rem;
+    color: #ededed;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-content .bar {
     height: 2.5rem;
     border-radius: .6rem;
-    border: .2rem solid;
-    color: #00abf0;
+    border: .2rem solid #00abf0;
     padding: .5rem;
-    margin: 1rem 0;
+    margin: 1rem 0 0 0;
 }
 
-.portfolio-content .personal .bar span {
+.portfolio-content .bar span {
     display: block;
     height: 100%;
     border-radius: .3rem;
     background-color: #00abf0;
 }
 
-.portfolio-column:nth-child(1) .portfolio-content .personal:nth-child(1) .bar span {
-    width: 19%;
-}
-
-.portfolio-column:nth-child(1) .portfolio-content .personal:nth-child(2) .bar span {
-    width: 67%;
-}
-
-.portfolio-column:nth-child(1) .portfolio-content .personal:nth-child(3) .bar span {
-    width: 48%;
-}
-
-.portfolio-column:nth-child(1) .portfolio-content .personal:nth-child(4) .bar span {
-    width: 17%;
-}
-
-.contact {
-    min-height: auto;
-    padding-bottom: 7rem;
-    padding-top: 100px;
-    background-color: black;
-}
-
-.contact form {
-    max-width: 70rem;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact form .input-box {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.contact form .input-box .input-field {
-    position: relative;
-    width: 49%;
-    margin: .8rem 0;
-}
-
-.contact form .input-box .input-field input {
+/* --- Slideshow Containers (General) --- */
+[class^="slideshow-container-"], [class*=" slideshow-container-"] {
     width: 100%;
-    height: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    color: #00abf0;
-    background: transparent;
-    border-radius: .6rem;
-    border: .2 rem solid var(#00abf0);
-}
-
-.contact form .input-box .input-field input::placeholder {
-    color:#00abf0;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 1rem 9%;
-    background-color: white;
-    background: #326377;
-}
-
-.footer-text p {
-    font-size: 1rem;
-}
-
-.footer-iconTop a {
+    max-width: 500px;
+    margin: 0 auto 20px auto;
     position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: .8rem;
-    background: #00abf0;
-    border: .2rem solid var(#00abf0);
-    border-radius: .6rem;
-    z-index: 1;
+    background: #222;
+    border-radius: 8px;
     overflow: hidden;
 }
 
-.footer-iconTop a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #081b29;
-    z-index: -1;
-    transition: .5s;
-}
-
-.footer-iconTop a:hover:before {
+[class^="slide-"], [class*=" slide-"] {
     width: 100%;
-}
-
-.footer-iconTop a i {
-    font-size: 2rem;
-    color: var(#326377);
-    transition: .5s;
-}
-
-.footer-iconTop a:hover i {
-    color:#00abf0;
-}
-
-/* Make images responsive */
-img, .slide-brickmerica {
-    max-width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
-/* Responsive container for slideshows */
+/* Slideshow navigation buttons */
+[class^="slideshow-container-"] .prev,
+[class^="slideshow-container-"] .next,
+[class*=" slideshow-container-"] .prev,
+[class*=" slideshow-container-"] .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 3px;
+    z-index: 2;
+    user-select: none;
+}
+[class^="slideshow-container-"] .prev,
+[class*=" slideshow-container-"] .prev { left: 0; }
+[class^="slideshow-container-"] .next,
+[class*=" slideshow-container-"] .next { right: 0; }
+
+@media (mac-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 4%;
+    }
+    
+    section {
+        padding: 10 rem 4% 2rem;
+    }
+    
+    .home {
+        padding: 0 4%;
+    }
+
+    .footer {
+        padding: 2rem 4%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        background: var(#00abf0);
+    }
+
+    #menu-icon {
+        display: block;
+    }
+}
+
+/* Add to style.css */
 .slideshow-container-brickmerica {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto 20px auto;
     position: relative;
-}
-.slideshow-container-taurista {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto 20px auto;
-    position: relative;
 }
-
-/* Responsive navigation */
-.header, .navbar, .nav-links {
+.slideshow-container-brickmerica img {
     width: 100%;
-    box-sizing: border-box;
+    height: auto;
 }
-
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.nav-links li {
-    margin: 0 10px;
-}
-
-/* Responsive sections */
-section, .portfolio-row, .portfolio-column, .portfolio-box, .portfolio-content {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Responsive form */
-.input-box, .input-field {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Responsive buttons in slideshow */
 .slideshow-container-brickmerica .prev,
 .slideshow-container-brickmerica .next {
+    cursor: pointer;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    border: none;
+    width: auto;
     padding: 8px 16px;
-    cursor: pointer;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
     font-size: 18px;
+    background: rgba(0,0,0,0.5);
+    border: none;
     border-radius: 3px;
-    z-index: 2;
+    user-select: none;
 }
-.slideshow-container-brickmerica .prev { left: 0; }
-.slideshow-container-brickmerica .next { right: 0; }
-.slideshow-container-taurista .prev,
-.slideshow-container-taurista .next {
+.slideshow-container-brickmerica .prev {
+    left: 0;
+}
+.slideshow-container-brickmerica .next {
+    right: 0;
+}
+
+/* --- Contact Section --- */
+.contact {
+    background: #101820;
+    padding: 60px 0 40px 0;
+    color: #ededed;
+}
+
+.contact .heading {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #00abf0;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #181f2a;
+    padding: 2rem 2rem 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+}
+
+.input-box {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.input-field {
+    flex: 1 1 220px;
+    position: relative;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #00abf0;
+    border-radius: 6px;
+    background: #232b3b;
+    color: #ededed;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-field input:focus {
+    border-color: #007fa3;
+}
+
+.input-field input::placeholder {
+    color: #b0b0b0;
+    opacity: 1;
+}
+
+.input-field .focus {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: #00abf0;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.input-field input:focus + .focus {
+    transform: scaleX(1);
+}
+
+.btn-box {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.btn-box a {
+    display: inline-block;
+    background: #00abf0;
     color: #fff;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 3px;
+    padding: 0.8rem 2.2rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-box a:hover {
+    background: #007fa3;
+    color: #fff;
+}
+
+/* --- Footer Section --- */
+.footer {
+    background: #181f2a;
+    color: #ededed;
+    padding: 1.2rem 0 0.5rem 0;
+    text-align: center;
+    position: relative;
     z-index: 2;
 }
-.slideshow-container-taurista .prev { left: 0; }
-.slideshow-container-taurista .next { right: 0; }
 
-/* Responsive text */
-h1, h2, h3, h5, p {
-    word-break: break-word;
+.footer-text p {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
 }
 
-/* Media Queries for smaller screens */
-@media (max-width: 900px) {
-    .portfolio-row, .education-row {
-        flex-direction: column;
-    }
-    .portfolio-column, .education-column {
-        width: 100%;
-    }
+.footer-iconTop {
+    margin-top: 0.7rem;
 }
 
+.footer-iconTop a {
+    display: inline-block;
+    background: #00abf0;
+    color: #fff;
+    padding: 0.5rem 0.7rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.footer-iconTop a:hover {
+    background: #007fa3;
+}
+
+/* --- Responsive --- */
 @media (max-width: 600px) {
-    .header {
+    .contact form {
+        padding: 1rem 0.5rem;
+    }
+    .input-box {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 0.7rem;
     }
-    .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .nav-links li {
-        margin: 5px 0;
-    }
-    .slideshow-container-brickmerica {
-        max-width: 100%;
-    }
-    h1 {
-        font-size: 1.5em;
-    }
-    h2 {
-        font-size: 1.2em;
-    }
-    .btn-box a, .btn {
-        font-size: 1em;
-        padding: 8px 12px;
-    }
-    .footer-text {
-        font-size: 0.9em;
+    .btn-box a {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.8rem 0;
     }
 }
 
