@@ -97,6 +97,34 @@ function showSlidesRecommender(n) {
     slides[slideIndexRecommender-1].style.display = "block";
 }
 
+// WVSOLUTIONS slideshow functionality
+let wvsolSlideIndex = 1;
+showWvsolSlides(wvsolSlideIndex);
+
+function plusSlidesWvsol(n) {
+    showWvsolSlides(wvsolSlideIndex += n);
+}
+
+function showWvsolSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide-wvsol");
+    
+    if (slides.length === 0) return;
+    
+    if (n > slides.length) {
+        wvsolSlideIndex = 1;
+    }
+    if (n < 1) {
+        wvsolSlideIndex = slides.length;
+    }
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    
+    slides[wvsolSlideIndex-1].style.display = "block";
+}
+
 const link10 = document.getElementById("link10");
 const link1 = document.getElementById("link1");
 const link2 = document.getElementById("link2");
