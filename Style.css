@@ -16,23 +16,33 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 10%;
+    padding: 2rem 9%;
     background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    transition: .3s; 
+    transform: translateY(0);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.header.sticky {
-    background: black;
+.header.shrink {
+    padding: 1rem 9%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.header.minimized {
-    padding: 8px 10%;
-    background: rgba(0,0,0,0.95);
-    transition: padding 0.3s, background 0.3s;
+.header.shrink .logo {
+    font-size: 1.5rem;
+}
+
+.header.shrink .navbar a {
+    font-size: 0.9rem;
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .logo {
@@ -42,6 +52,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     cursor: default;
+    transition: transform 0.3s ease;
 }
 
 .logo.minimized {
@@ -67,7 +78,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
-    transition: .5s;
+    transition: all 0.3s ease;
 }
 
 .navbar :hover,

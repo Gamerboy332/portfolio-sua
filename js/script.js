@@ -150,3 +150,38 @@ link3.addEventListener('click', () =>{
 link4.addEventListener('click', () =>{
     scrolltoElement('.heading', 3);
 })
+
+// Header shrink on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    
+    if (window.scrollY > 100) {
+        header.classList.add('shrink');
+    } else {
+        header.classList.remove('shrink');
+    }
+});
+
+let lastScrollY = 0;
+let isScrolling;
+
+// Header hide/show on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    const currentScroll = window.pageYOffset;
+    
+    // Hide header while scrolling in any direction
+    if (Math.abs(currentScroll - lastScrollY) > 10) {
+        header.classList.add('hidden');
+    }
+    
+    lastScrollY = currentScroll;
+    
+    // Clear the timeout throughout the scroll
+    clearTimeout(isScrolling);
+    
+    // Set a timeout to show header when scrolling stops
+    isScrolling = setTimeout(function() {
+        header.classList.remove('hidden');
+    }, 150); // Adjust this value to control how quickly the header appears after stopping
+});
