@@ -892,3 +892,53 @@ span {
     background-color: rgba(0,0,0,0.9);
 }
 
+.typing-name {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--main-color);
+    animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+.typing-text {
+    overflow: visible;
+    white-space: nowrap;
+    opacity: 100%;
+    border-right: 2px solid var(--main-color);
+    animation: typing 3.5s steps(30, end) 1s forwards,
+             blink-caret .75s step-end infinite;
+}
+
+.typing-text, .typing-text-2 {
+    position: relative;
+}
+
+
+.typing-text-2::after {
+    content: "|";
+    position: absolute;
+    right: 50;
+    width: 100%;
+    color: var(--main-color);
+    background: var(--bg-color);
+    animation: typing 4s steps(30) forwards,
+               caret 0.5s infinite;
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+@keyframes caret {
+    50% { color: transparent }
+}
+
+.personal a {
+    text-decoration: none;   /* removes underline */
+    color: var(--main-color); /* or pick your own color */
+    font-weight: bold;       /* optional, makes it stand out */
+}
+
+.personal a:hover {
+    text-decoration: underline; /* underline only on hover */
+    color: var(--accent-color); /* optional hover color */
+}

@@ -185,3 +185,31 @@ window.addEventListener('scroll', function() {
         header.classList.remove('hidden');
     }, 150); // Adjust this value to control how quickly the header appears after stopping
 });
+
+// Typing animation
+document.addEventListener('DOMContentLoaded', function() {
+    const text1 = "Aurelio Sua!";
+    const text2 = "An aspiring CS Student";
+    const typingText1 = document.querySelector('.typing-text');
+    const typingText2 = document.querySelector('.typing-text-2');
+    
+    function typeText(element, text, delay = 0) {
+        setTimeout(() => {
+            let index = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (index < text.length) {
+                    element.textContent += text[index];
+                    index++;
+                    setTimeout(type, 100);
+                }
+            }
+            
+            type();
+        }, delay);
+    }
+    
+    typeText(typingText1, text1);
+    typeText(typingText2, text2, 2000); // starts after first line
+});
