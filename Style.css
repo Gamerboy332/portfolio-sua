@@ -115,7 +115,7 @@ body {
 }
 .home {
     height: 100vh;
-    background: url('uni.jpg') no-repeat; 
+    background: url('/assets/uni.jpg') no-repeat; 
     background-color: black;
     background-size: 410px;
     background-position: 80%;
